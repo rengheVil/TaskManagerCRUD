@@ -1,0 +1,28 @@
+
+<form [formGroup]="taskForm"  style="border: 2px solid;margin: 10%;margin-left: auto;margin-right: auto; padding: 20px; width: 500px; height: 500px;">
+    <H1 style="color: brown;"> Add New Task </H1>
+    <hr>
+    <div class="mb-3">
+        <label for="title" class="form-label"> Title </label>
+        <input type="text" class="form-control" id="title" formControlName="title">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description </label>
+        <input type="text" class="form-control" id="description" formControlName="description">
+    </div>
+    <div class="mb-3">
+        <label for="dueDate" class="form-label">Due Date </label>
+        <input type="date" class="form-control" id="dueDate" placeholder="Another input placeholder" formControlName="dueDate">
+    </div>
+    <div class="mb-3">
+        <label for="priority" class="form-label">Priority </label>
+        <select class="form-control" id="priority" formControlName="priority" aria-label="Default select example" placeholder="High">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+   </div>
+    <button type="submit" class="btn btn-primary me-3" (click)="onSubmit(taskForm)">Submit</button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+
+</form>

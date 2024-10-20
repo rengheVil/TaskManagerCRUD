@@ -1,0 +1,37 @@
+
+<div class="bodyc" style="border: 2px solid; margin: 50px;"> 
+<div class="addTable" style="margin: 5%"> 
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search task" class="search me-3 " > 
+    <button type="button" class="btn btn-secondary" routerLink="./add" > + New Task </button> <br><br>
+    <table class="table  table-striped" >
+    
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">DudDate</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks | taskSearch:searchTerm ">
+            <th scope="row">{{task.id}}</th>
+            <td scope="row">{{task.title}}</td>
+            <td scope="row">{{task.description}}</td>
+            <td scope="row">{{task.dueDate | date:' dd-MM-yyyy'}}</td>
+            <td scope="row">{{task.priority}}</td>
+            <td scope="row"> 
+              <button type="button " class="btn btn-primary me-3" [routerLink]= "['edit/', task.id]"> <i class="bi bi-pencil-square "></i> </button>
+              <button type="button" class="btn btn-danger me-3" (click)="onDelete(task.id)"> <i class="bi bi-trash3-fill"></i> </button>
+            </td>
+    
+          </tr>
+        </tbody>
+     
+    </table>
+    </div>
+  </div>
+
+
